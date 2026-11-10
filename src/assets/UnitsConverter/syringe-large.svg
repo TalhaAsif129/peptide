@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 28">
+  <rect x="0" y="5" width="5" height="18" rx="2" fill="#94a3b8" />
+  <rect x="5" y="12" width="18" height="4" rx="1" fill="#cbd5e1" />
+  <rect x="23" y="5" width="150" height="18" rx="3" fill="white" stroke="#cbd5e1" stroke-width="1.5" />
+  <line x1="23" y1="5" x2="23" y2="12" stroke="#94a3b8" stroke-width="1" />
+  <line x1="38" y1="5" x2="38" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="53" y1="5" x2="53" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="68" y1="5" x2="68" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="83" y1="5" x2="83" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="98" y1="5" x2="98" y2="12" stroke="#94a3b8" stroke-width="1" />
+  <line x1="113" y1="5" x2="113" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="128" y1="5" x2="128" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="143" y1="5" x2="143" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="158" y1="5" x2="158" y2="9" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="173" y1="5" x2="173" y2="12" stroke="#94a3b8" stroke-width="1" />
+  <path d="M 173 9 L 187 12 L 187 16 L 173 19 Z" fill="#cbd5e1" stroke="#94a3b8" stroke-width="0.5" />
+  <line x1="187" y1="14" x2="220" y2="14" stroke="#94a3b8" stroke-width="1" stroke-linecap="round" />
+</svg>
