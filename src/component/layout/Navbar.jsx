@@ -323,7 +323,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.path}
-                className="block rounded-lg px-4 py-3 font-medium text-[#333333] hover:bg-[#F7F8F9]"
+                className="block rounded-lg px-4 py-3 font-medium text-white "
                 onClick={closeMenus}
               >
                 {item.label}
@@ -334,14 +334,14 @@ export default function Navbar() {
           <div className="my-1 border-t border-[#e5e7eb]" />
           <Link
             to="/about"
-            className="block rounded-lg px-4 py-2.5 text-sm text-[#6b7280] hover:bg-[#F7F8F9] hover:text-[#333333]"
+            className="block rounded-lg px-4 py-2.5 text-sm text-white hover:bg-[#F7F8F9] "
             onClick={closeMenus}
           >
             About
           </Link>
           <Link
             to="/contact"
-            className="block rounded-lg px-4 py-2.5 text-sm text-[#6b7280] hover:bg-[#F7F8F9] hover:text-[#333333]"
+            className="block rounded-lg px-4 py-2.5 text-sm text-white hover:bg-[#F7F8F9] "
             onClick={closeMenus}
           >
             Contact
@@ -352,14 +352,14 @@ export default function Navbar() {
         <div className="mt-auto border-t border-[#e5e7eb] p-4 space-y-2">
           <Link
             to="/login"
-            className="block rounded-full border border-[#d5dedb] px-4 py-3 text-center font-bold text-[#333333] hover:bg-[#F7F8F9]"
+            className="block rounded-full border border-[#d5dedb] px-4 py-3 text-center font-bold text-white"
             onClick={closeMenus}
           >
             Log in
           </Link>
           <Link
             to="/signup"
-            className="block rounded-full px-4 py-3 text-center font-bold bg-[#0d8189] text-white hover:bg-[#096d74]"
+            className="block rounded-full px-4 py-3 text-center font-bold bg-[#0d8189] text-white hover:bg-[#F1A93B]"
             onClick={closeMenus}
           >
             Sign up
