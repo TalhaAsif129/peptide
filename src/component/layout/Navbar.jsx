@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg"; 
+import logo from "../../assets/logo.svg";
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState(null);
-  
+
   // Ref for the whole menu to detect outside clicks (optional for mobile, but good for desktop)
   const dropdownRef = useRef(null);
 
@@ -14,50 +14,62 @@ export default function Navbar() {
     {
       label: "Clinics",
       dropdown: [
-        { label: "Search Clinics",        path: "/"                              },
-        { label: "Browse by State",        path: "/clinics/browse-by-state"      },
-        { label: "Telehealth Clinics",     path: "/clinics/telehealth-clinics"   },
-        { label: "Best Telehealth (2026)", path: "/clinics/best-telehealth"      },
-        { label: "By Treatment",           path: "/clinics/by-treatment"         },
-        { label: "Login to Dashboard",     path: "/clinics/login-to-dashboard"   },
-        { label: "Claim Your Listing",     path: "/claim-your-listing"           },
+        { label: "Search Clinics", path: "/" },
+        { label: "Browse by State", path: "/clinics/browse-by-state" },
+        { label: "Telehealth Clinics", path: "/clinics/telehealth-clinics" },
+        { label: "Best Telehealth (2026)", path: "/clinics/best-telehealth" },
+        { label: "By Treatment", path: "/clinics/by-treatment" },
+        { label: "Login to Dashboard", path: "/clinics/login-to-dashboard" },
+        { label: "Claim Your Listing", path: "/claim-your-listing" },
       ],
     },
     {
       label: "Protocols",
       dropdown: [
-        { label: "All Protocols",               path: "/protocols"                        },
-        { label: "Weight Loss & GLP-1",          path: "/protocols/weight-loss-glp1"      },
-        { label: "Growth Hormone & GHRH",        path: "/protocols/growth-hormone-ghrh"   },
-        { label: "Tissue Repair & Recovery",     path: "/protocols/tissue-repair"         },
-        { label: "Anti-Aging & Longevity",       path: "/protocols/anti-aging"            },
-        { label: "Cognitive, Neuro & Sleep",     path: "/protocols/cognitive-neuro-sleep" },
-        { label: "Peptide Blends & Stacks",      path: "/protocols/blends-stacks"         },
+        { label: "All Protocols", path: "/protocols" },
+        { label: "Weight Loss & GLP-1", path: "/protocols/weight-loss-glp1" },
+        {
+          label: "Growth Hormone & GHRH",
+          path: "/protocols/growth-hormone-ghrh",
+        },
+        { label: "Tissue Repair & Recovery", path: "/protocols/tissue-repair" },
+        { label: "Anti-Aging & Longevity", path: "/protocols/anti-aging" },
+        {
+          label: "Cognitive, Neuro & Sleep",
+          path: "/protocols/cognitive-neuro-sleep",
+        },
+        { label: "Peptide Blends & Stacks", path: "/protocols/blends-stacks" },
       ],
     },
     {
       label: "Peptides",
       dropdown: [
-        { label: "Peptides Encyclopedia", path: "/peptides"                    },
-        { label: "Popular Peptides",       path: "/peptides/popular"           },
-        { label: "By Category",            path: "/peptides/by-category"       },
-        { label: "Compare Peptides",       path: "/peptides/compare"           },
-        { label: "Best Telehealth (2026)", path: "/clinics/best-telehealth"    },
-        { label: "Vendors",                path: "/peptides/vendors"           },
+        { label: "Peptides Encyclopedia", path: "/peptides" },
+        { label: "Popular Peptides", path: "/peptides/popular" },
+        { label: "By Category", path: "/peptides/by-category" },
+        { label: "Compare Peptides", path: "/peptides/compare" },
+        { label: "Best Telehealth (2026)", path: "/clinics/best-telehealth" },
+        { label: "Vendors", path: "/peptides/vendors" },
       ],
     },
     {
       label: "Tools",
       dropdown: [
-        { label: "Tools Home",               path: "/tools"                          },
-        { label: "BAC Water Calculator",     path: "/tools/bac-water-calculator"    },
-        { label: "Peptide Calculator",       path: "/tools/peptide-calculator"      },
-        { label: "Titration Calculator",     path: "/tools/titration-calculator"    },
-        { label: "Units Converter",          path: "/tools/units-converter"         },
-        { label: "Semaglutide Calculator",   path: "/tools/semaglutide-calculator"  },
-        { label: "Tirzepatide Calculator",   path: "/tools/tirzepatide-calculator"  },
-        { label: "Semaglutide Units",        path: "/tools/semaglutide-units"       },
-        { label: "Tirzepatide Units",        path: "/tools/tirzepatide-units"       },
+        { label: "Tools Home", path: "/tools" },
+        { label: "BAC Water Calculator", path: "/tools/bac-water-calculator" },
+        { label: "Peptide Calculator", path: "/tools/peptide-calculator" },
+        { label: "Titration Calculator", path: "/tools/titration-calculator" },
+        { label: "Units Converter", path: "/tools/units-converter" },
+        {
+          label: "Semaglutide Calculator",
+          path: "/tools/semaglutide-calculator",
+        },
+        {
+          label: "Tirzepatide Calculator",
+          path: "/tools/tirzepatide-calculator",
+        },
+        { label: "Semaglutide Units", path: "/tools/semaglutide-units" },
+        { label: "Tirzepatide Units", path: "/tools/tirzepatide-units" },
       ],
     },
     { label: "Blog", dropdown: null, path: "/blog" },
@@ -89,10 +101,17 @@ export default function Navbar() {
     <>
       <nav className="sticky top-0 z-50 w-full border-b border-[#d9d9d9] bg-[#16203B]">
         <div className="mx-auto flex min-h-[64px] w-full max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:px-10 xl:px-8">
-
           {/* Logo */}
-          <Link to="/" onClick={closeMenus} className="flex shrink-0 items-center no-underline">
-            <img src={logo} alt="MyPeptideMatch" className="h-[25px] w-auto object-contain" />
+          <Link
+            to="/"
+            onClick={closeMenus}
+            className="flex shrink-0 items-center no-underline"
+          >
+            <img
+              src={logo}
+              alt="MyPeptideMatch"
+              className="h-[25px] w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -101,7 +120,9 @@ export default function Navbar() {
               <li
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => item.dropdown && setOpenDropdown(item.label)}
+                onMouseEnter={() =>
+                  item.dropdown && setOpenDropdown(item.label)
+                }
                 onMouseLeave={() => setOpenDropdown(null)}
               >
                 {item.dropdown ? (
@@ -110,20 +131,28 @@ export default function Navbar() {
                     aria-expanded={openDropdown === item.label}
                     onClick={() =>
                       setOpenDropdown((current) =>
-                        current === item.label ? null : item.label
+                        current === item.label ? null : item.label,
                       )
                     }
                     className="flex cursor-pointer items-center gap-1.5 whitespace-nowrap border-0 bg-transparent py-2 text-[15px] leading-6 fraunces-semibold text-white transition-colors"
                   >
                     {item.label}
                     <svg
-                      width="12" height="12" viewBox="0 0 24 24" fill="none"
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
                       className={`transition-transform duration-200 ${
                         openDropdown === item.label ? "rotate-180" : ""
                       }`}
                     >
-                      <path d="m7 10 5 5 5-5" stroke="currentColor" strokeWidth="2"
-                        strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="m7 10 5 5 5-5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </button>
                 ) : (
@@ -179,7 +208,12 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path
+                d="M4 7h16M4 12h16M4 17h16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
             </svg>
           </button>
         </div>
@@ -207,16 +241,23 @@ export default function Navbar() {
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between border-b border-[#e5e7eb] p-4">
-          <span className="fraunces-bold text-lg text-[#0f2027]">
-            Menu
-          </span>
+          <span className="fraunces-bold text-lg text-white">Menu</span>
           <button
             type="button"
             aria-label="Close menu"
             onClick={closeMenus}
             className="rounded-lg p-2 hover:bg-[#F7F8F9] focus:outline-none"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="white"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
           </button>
@@ -226,14 +267,14 @@ export default function Navbar() {
         <nav className="flex flex-col gap-0.5 overflow-y-auto p-3">
           {navItems.map((item) => {
             const isExpanded = expandedMobileItem === item.label;
-            
+
             if (item.dropdown) {
               return (
                 <div key={item.label}>
                   <div className="flex items-center rounded-lg overflow-hidden">
                     <Link
                       to={item.path || "#"}
-                      className="flex-1 px-4 py-3 font-medium text-[#333333] hover:bg-[#F7F8F9]"
+                      className="flex-1 px-4 py-3 font-medium text-white hover:bg-[#F7F8F9]"
                       onClick={closeMenus}
                     >
                       {item.label}
@@ -241,13 +282,20 @@ export default function Navbar() {
                     <button
                       type="button"
                       aria-expanded={isExpanded}
-                      aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${item.label}`}
+                      aria-label={`${isExpanded ? "Collapse" : "Expand"} ${item.label}`}
                       onClick={() => toggleMobileItem(item.label)}
                       className="px-3 py-3 text-[#6b7280] hover:bg-[#F7F8F9] focus:outline-none"
                     >
                       <svg
-                        width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                        className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={`transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
                       >
                         <path d="m6 9 6 6 6-6" />
                       </svg>
