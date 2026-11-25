@@ -201,13 +201,13 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`fixed right-0 top-0 z-[70] flex h-full w-80 max-w-[85vw] flex-col bg-white shadow-xl transition-transform duration-300 lg:hidden ${
+        className={`fixed right-0 top-0 z-[70] flex h-full w-80 max-w-[85vw] flex-col bg-[#16203B] shadow-xl transition-transform duration-300 lg:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between border-b border-[#e5e7eb] p-4">
-          <span className="font-bold text-lg text-[#0f2027]">
+          <span className="fraunces-bold text-lg text-[#0f2027]">
             Menu
           </span>
           <button
