@@ -1,0 +1,427 @@
+// src/component/navpages/compare/NoomVsMochiHealth.jsx
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
+/* ---------- Schemas ---------- */
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: { '@id': 'https://www.mypeptidematch.com/', name: 'Home' } },
+    { '@type': 'ListItem', position: 2, name: 'Comparisons', item: { '@id': 'https://www.mypeptidematch.com/compare', name: 'Comparisons' } },
+    { '@type': 'ListItem', position: 3, name: 'Noom vs Mochi Health' },
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Noom vs Mochi Health',
+  numberOfItems: 2,
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      url: 'https://www.mypeptidematch.com/vendors/noom',
+      item: {
+        '@type': ['Organization', 'MedicalOrganization'],
+        name: 'Noom',
+        url: 'https://www.noom.com',
+        image: 'https://s3-eu-west-1.amazonaws.com/tpd/logos/5938442c0000ff0005a4151e/0x0.png',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      url: 'https://www.mypeptidematch.com/vendors/mochi-health',
+      item: {
+        '@type': ['Organization', 'MedicalOrganization'],
+        name: 'Mochi Health',
+        url: 'https://joinmochi.com',
+        image: 'https://s3-eu-west-1.amazonaws.com/tpd/logos/6500244e60003ffc450aa45a/0x0.png',
+      },
+    },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Noom vs Mochi Health: which is better?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'For most patients, Mochi Health edges out Noom on our editorial score — budget-friendly compounded glp-1 ($39 first month). That said, Noom can be the better fit depending on price, treatment menu, and what your consultation reveals — see the side-by-side below.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Noom and Mochi Health offer the same treatments?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Both offer Semaglutide. Noom additionally offers Liraglutide. Mochi Health additionally offers Tirzepatide.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Noom and Mochi Health legit?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Both are US telehealth providers that connect patients with licensed clinicians and ship prescriptions from partner pharmacies. Noom holds a 4.5/5 rating from 66,323 verified Trustpilot reviews. Mochi Health holds a 4.4/5 rating from 16,196 verified Trustpilot reviews. Treatment eligibility is determined during a clinical consultation.',
+      },
+    },
+  ],
+};
+
+/* ---------- Data ---------- */
+const vendors = [
+  {
+    id: 'noom',
+    name: 'Noom',
+    tagline: 'Behavior-change app with GLP-1 add-on',
+    rating: '4.5/5 (66,323) · 7.3/10 editorial',
+    price: null,
+    tags: ['Weight Loss'],
+    url: 'https://www.noom.com/?utm_source=mypeptidematch&utm_medium=referral&utm_campaign=telehealth_listing',
+    isPick: false,
+    logo: 'https://s3-eu-west-1.amazonaws.com/tpd/logos/5938442c0000ff0005a4151e/0x0.png',
+  },
+  {
+    id: 'mochi-health',
+    name: 'Mochi Health',
+    tagline: 'Budget-friendly compounded GLP-1 ($39 first month)',
+    rating: '4.4/5 (16,196) · 7.6/10 editorial',
+    price: 'From $39/mo',
+    tags: ['Weight Loss'],
+    url: 'https://joinmochi.com/?utm_source=mypeptidematch&utm_medium=referral&utm_campaign=telehealth_listing',
+    isPick: true,
+    logo: 'https://s3-eu-west-1.amazonaws.com/tpd/logos/6500244e60003ffc450aa45a/0x0.png',
+  },
+];
+
+const sideBySideRows = [
+  ['Starting price', 'Not disclosed', '$39/mo'],
+  ['Customer rating', '4.5/5 (66,323)', '4.4/5 (16,196)'],
+  ['Editorial score', '7.3/10', '7.6/10'],
+  ['Medication type', 'Brand-name (FDA-approved) available', 'Compounded (503A/503B pharmacies)'],
+  ['Consultation', 'Live video visit', 'Live video visit'],
+  ['Best for', 'Weight Loss', 'Weight Loss'],
+  ['Treatments listed', '2', '2'],
+];
+
+const treatments = [
+  {
+    label: 'Both offer (1)',
+    color: 'emerald',
+    items: [{ name: 'Semaglutide', href: '/peptides/semaglutide' }],
+  },
+  {
+    label: 'Only at Noom (1)',
+    color: 'blue',
+    items: [{ name: 'Liraglutide', href: '/peptides/liraglutide' }],
+  },
+  {
+    label: 'Only at Mochi Health (1)',
+    color: 'amber',
+    items: [{ name: 'Tirzepatide', href: '/peptides/tirzepatide' }],
+  },
+];
+
+const prosCons = [
+  {
+    id: 'noom',
+    name: 'Noom',
+    pros: [
+      'Best-in-class behavior-change app',
+      'Noom Med adds clinician-prescribed GLP-1',
+      'Large, well-funded national platform',
+    ],
+    cons: ['Medication access varies by eligibility', 'Med-tier pricing not transparent upfront'],
+    url: 'https://www.noom.com/?utm_source=mypeptidematch&utm_medium=referral&utm_campaign=telehealth_listing',
+    reviewHref: '/vendors/noom',
+    reviewLabel: 'Read full Noom review →',
+  },
+  {
+    id: 'mochi-health',
+    name: 'Mochi Health',
+    pros: [
+      'Low $39 first-month pricing',
+      'Obesity-medicine-trained providers',
+      'Insurance-eligible GLP-1 navigation',
+    ],
+    cons: ['Available in only ~10 states', 'Compounded focus'],
+    url: 'https://joinmochi.com/?utm_source=mypeptidematch&utm_medium=referral&utm_campaign=telehealth_listing',
+    reviewHref: '/vendors/mochi-health',
+    reviewLabel: 'Read full Mochi Health review →',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Noom vs Mochi Health: which is better?',
+    a: 'For most patients, Mochi Health edges out Noom on our editorial score — budget-friendly compounded glp-1 ($39 first month). That said, Noom can be the better fit depending on price, treatment menu, and what your consultation reveals — see the side-by-side below.',
+  },
+  {
+    q: 'Do Noom and Mochi Health offer the same treatments?',
+    a: 'Both offer Semaglutide. Noom additionally offers Liraglutide. Mochi Health additionally offers Tirzepatide.',
+  },
+  {
+    q: 'Are Noom and Mochi Health legit?',
+    a: 'Both are US telehealth providers that connect patients with licensed clinicians and ship prescriptions from partner pharmacies. Noom holds a 4.5/5 rating from 66,323 verified Trustpilot reviews. Mochi Health holds a 4.4/5 rating from 16,196 verified Trustpilot reviews. Treatment eligibility is determined during a clinical consultation.',
+  },
+];
+
+/* ---------- Helpers ---------- */
+const ChevronRight = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0 text-[#6b7280]" aria-hidden="true">
+    <path d="m9 18 6-6-6-6" />
+  </svg>
+);
+
+const ExternalLink = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
+    <path d="M15 3h6v6" />
+    <path d="M10 14 21 3" />
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+  </svg>
+);
+
+const VisitButton = ({ url, label }) => (
+  <a
+    href={url}
+    target="_blank"
+    rel="sponsored nofollow noopener noreferrer"
+    className="inline-flex items-center gap-2 rounded-[4px] bg-[#FEED5A] px-5 py-2.5 text-sm font-semibold text-[#333333] transition-all hover:bg-[#FFF04B] hover:shadow-[0_2px_8px_rgba(254,237,90,0.4)]"
+  >
+    {label} <ExternalLink />
+  </a>
+);
+
+/* ---------- Sub-components ---------- */
+const VendorCard = ({ vendor }) => (
+  <div
+    className={`relative rounded-[5px] border bg-white p-5 shadow-[0_1px_3px_0_rgba(160,160,160,0.45),0_0_3px_0_rgba(0,0,0,0.08)] ${
+      vendor.isPick ? 'border-emerald-300' : 'border-[#e5e7eb]'
+    }`}
+  >
+    {vendor.isPick && (
+      <span className="absolute -top-2 left-4 inline-flex items-center rounded-full bg-emerald-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+        Our pick
+      </span>
+    )}
+    <div className="flex items-start gap-3">
+      {vendor.logo && (
+        <img
+          alt={`${vendor.name} logo`}
+          loading="lazy"
+          width="44"
+          height="44"
+          className="h-11 w-11 shrink-0 rounded-[6px] border border-[#e5e7eb] bg-white object-contain p-1"
+          src={vendor.logo}
+        />
+      )}
+      <div className="min-w-0 flex-1">
+        <a className="font-heading text-lg font-bold text-[#333333] hover:text-[#1F6CD6]" href={`/vendors/${vendor.id}`} style={{ fontFamily: 'var(--font-heading)' }}>
+          {vendor.name}
+        </a>
+        <p className="mt-0.5 text-xs text-[#6b7280]">{vendor.tagline}</p>
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#6b7280]">
+          <span>{vendor.rating}</span>
+          {vendor.price && <span className="font-medium text-[#333333]">{vendor.price}</span>}
+        </div>
+        <div className="mt-2 flex flex-wrap gap-1">
+          {vendor.tags.map((t) => (
+            <span key={t} className="inline-flex items-center rounded-full bg-[#F7F8F9] px-2 py-0.5 text-[11px] font-medium text-[#4a4a4a]">
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div className="mt-4">
+      <VisitButton url={vendor.url} label={`Visit ${vendor.name}`} />
+    </div>
+  </div>
+);
+
+const TreatmentCard = ({ group }) => {
+  const colorMap = {
+    emerald: { border: 'border-emerald-200', bg: 'bg-emerald-50/40', text: 'text-emerald-800' },
+    blue: { border: 'border-blue-200', bg: 'bg-blue-50/40', text: 'text-blue-800' },
+    amber: { border: 'border-amber-200', bg: 'bg-amber-50/40', text: 'text-amber-800' },
+  };
+  const c = colorMap[group.color];
+  return (
+    <div className={`rounded-[5px] border p-4 ${c.border} ${c.bg}`}>
+      <h3 className={`text-xs font-bold uppercase tracking-wider ${c.text}`}>{group.label}</h3>
+      {group.items.length > 0 ? (
+        <ul className="mt-2 flex flex-wrap gap-1.5">
+          {group.items.map((item) => (
+            <li key={item.name}>
+              <a className="inline-flex items-center rounded-full border border-[#e5e7eb] bg-white px-2.5 py-1 text-xs text-[#1F6CD6] hover:border-[#1F6CD6]" href={item.href}>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-2 text-xs text-[#6b7280]">None.</p>
+      )}
+    </div>
+  );
+};
+
+const ProsConsCard = ({ vendor }) => (
+  <div className="rounded-[5px] border border-[#e5e7eb] bg-white p-5 shadow-[0_1px_3px_0_rgba(160,160,160,0.45),0_0_3px_0_rgba(0,0,0,0.08)]">
+    <h3 className="font-heading text-lg font-bold text-[#333333]" style={{ fontFamily: 'var(--font-heading)' }}>
+      {vendor.name} — pros &amp; cons
+    </h3>
+    <h4 className="mt-4 text-xs font-bold uppercase tracking-wider text-emerald-800">Pros</h4>
+    <ul className="mt-2 space-y-1.5 text-sm text-[#333333]">
+      {vendor.pros.map((p, i) => (
+        <li key={i} className="flex gap-2"><span className="text-emerald-600">+</span>{p}</li>
+      ))}
+    </ul>
+    <h4 className="mt-4 text-xs font-bold uppercase tracking-wider text-[#6b7280]">Cons</h4>
+    <ul className="mt-2 space-y-1.5 text-sm text-[#333333]">
+      {vendor.cons.map((c, i) => (
+        <li key={i} className="flex gap-2"><span className="text-[#9ca3af]">−</span>{c}</li>
+      ))}
+    </ul>
+    <div className="mt-5 flex flex-wrap items-center gap-3">
+      <VisitButton url={vendor.url} label={`Visit ${vendor.name}`} />
+      <a className="text-sm font-medium text-[#1F6CD6] hover:underline" href={vendor.reviewHref}>
+        {vendor.reviewLabel}
+      </a>
+    </div>
+  </div>
+);
+
+/* ---------- Main Component ---------- */
+export default function NoomVsMochiHealth() {
+  return (
+    <>
+      <Helmet>
+        <title>Noom vs Mochi Health: Which Is Better? (2026) | MyPeptideMatch</title>
+        <meta
+          name="description"
+          content="Compare Noom vs Mochi Health telehealth: pricing, GLP-1 weight-loss treatments, pros and cons, and which provider fits you best in 2026."
+        />
+        <link rel="canonical" href="https://www.mypeptidematch.com/compare/noom-vs-mochi-health" />
+        <meta property="og:title" content="Noom vs Mochi Health: Which Is Better? (2026)" />
+        <meta property="og:description" content="Compare Noom vs Mochi Health telehealth: pricing, treatments, pros and cons in 2026." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.mypeptidematch.com/compare/noom-vs-mochi-health" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <main id="main-content" className="flex-1">
+        <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="flex min-w-0 items-center gap-1 overflow-x-auto text-sm text-[#6b7280] mb-6">
+            <span className="inline-flex shrink-0 items-center gap-1">
+              <a className="truncate max-w-[120px] sm:max-w-none hover:text-[#1F6CD6] transition-colors" href="/">Home</a>
+            </span>
+            <span className="inline-flex shrink-0 items-center gap-1">
+              <ChevronRight />
+              <a className="truncate max-w-[120px] sm:max-w-none hover:text-[#1F6CD6] transition-colors" href="/compare">Comparisons</a>
+            </span>
+            <span className="inline-flex shrink-0 items-center gap-1">
+              <ChevronRight />
+              <span className="font-medium text-[#333333] truncate max-w-[140px] sm:max-w-none">Noom vs Mochi Health</span>
+            </span>
+          </nav>
+
+          {/* Hero Header */}
+          <header className="mx-auto max-w-3xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6b7280]">
+              Telehealth Comparison · 2026
+            </span>
+            <h1 className="mt-3 font-heading text-3xl font-bold leading-tight text-[#333333] sm:text-[40px] sm:leading-[48px]" style={{ fontFamily: 'var(--font-heading)' }}>
+              Noom vs Mochi Health: Which Is Better?
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-[#4a4a4a]">
+              For most patients, Mochi Health edges out Noom on our editorial score — budget-friendly compounded glp-1 ($39 first month). That said, Noom can be the better fit depending on price, treatment menu, and what your consultation reveals — see the side-by-side below.
+            </p>
+          </header>
+
+          {/* Vendor Cards */}
+          <section className="mt-10 grid gap-5 md:grid-cols-2">
+            {vendors.map((v) => <VendorCard key={v.id} vendor={v} />)}
+          </section>
+
+          {/* Side-by-side Table */}
+          <section className="mt-10">
+            <h2 className="font-heading text-2xl font-bold text-[#333333]" style={{ fontFamily: 'var(--font-heading)' }}>
+              Side-by-side comparison
+            </h2>
+            <div className="mt-4 overflow-x-auto rounded-[5px] border border-[#e5e7eb] bg-white shadow-[0_1px_3px_0_rgba(160,160,160,0.45),0_0_3px_0_rgba(0,0,0,0.08)]">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-[#e5e7eb] bg-[#F7F8F9]">
+                    <th className="w-1/3 px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-[#6b7280]">Feature</th>
+                    <th className="px-4 py-3 text-left font-semibold text-[#333333]">Noom</th>
+                    <th className="px-4 py-3 text-left font-semibold text-[#333333]">Mochi Health</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#e5e7eb]">
+                  {sideBySideRows.map(([feature, noom, mochi]) => (
+                    <tr key={feature}>
+                      <td className="px-4 py-3 align-top text-xs font-semibold uppercase tracking-wider text-[#6b7280]">{feature}</td>
+                      <td className="px-4 py-3 align-top text-sm text-[#333333]">{noom}</td>
+                      <td className="px-4 py-3 align-top text-sm text-[#333333]">{mochi}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Treatments offered */}
+          <section className="mt-10">
+            <h2 className="font-heading text-2xl font-bold text-[#333333]" style={{ fontFamily: 'var(--font-heading)' }}>
+              Treatments offered
+            </h2>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {treatments.map((group, i) => <TreatmentCard key={i} group={group} />)}
+            </div>
+          </section>
+
+          {/* Pros & Cons */}
+          <section className="mt-10 grid gap-5 md:grid-cols-2">
+            {prosCons.map((v) => <ProsConsCard key={v.id} vendor={v} />)}
+          </section>
+
+          {/* FAQ */}
+          <section className="mx-auto mt-12 max-w-3xl">
+            <h2 className="font-heading text-2xl font-bold text-[#333333]" style={{ fontFamily: 'var(--font-heading)' }}>
+              Frequently asked questions
+            </h2>
+            <div className="mt-4 divide-y divide-[#e5e7eb] border-y border-[#e5e7eb]">
+              {faqs.map((item, i) => (
+                <div key={i} className="py-4">
+                  <h3 className="font-semibold text-[#333333]">{item.q}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-[#4a4a4a]">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Affiliate Disclosure */}
+          <div className="mt-12 rounded-[5px] border border-[#e5e7eb] bg-[#F7F8F9] p-4 text-xs text-[#6b7280]">
+            <p>
+              <strong>Affiliate disclosure:</strong> Some links on this page are affiliate links — if you start treatment through one, we may earn a commission at no additional cost to you. Editorial rankings and opinions are independent of commercial relationships. See our{' '}
+              <a className="text-[#1F6CD6] hover:underline" href="/affiliate-disclosure">affiliate disclosure</a>.
+            </p>
+          </div>
+        </div>
+      </main>
+    </>
+  );
+}

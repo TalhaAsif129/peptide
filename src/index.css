@@ -1,0 +1,362 @@
+
+@import "tailwindcss";
+
+/* ========================================
+   TAILWIND CSS V4 THEME CONFIGURATION
+======================================== */
+
+@theme {
+  --font-sans: "Segoe UI", Roboto, sans-serif;
+  --font-saira: "Saira Condensed", sans-serif;
+  --font-heading: "Saira Condensed", sans-serif;
+  --font-fraunces: "Fraunces", serif;
+
+  /* JetBrains Mono added to theme */
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ========================================
+   ROOT VARIABLES
+======================================== */
+
+:root {
+  --font-heading: "Saira Condensed", sans-serif;
+  --font-sans: "Segoe UI", Roboto, sans-serif;
+  --font-saira: "Saira Condensed", sans-serif;
+  --font-fraunces: "Fraunces", serif;
+
+  --ink: #1c2522;
+  --ink-soft: #3a4744;
+  --muted: #5b6764;
+  --surface: #ffffff;
+  --canvas: #f6f8f7;
+  --border-color: #e3e8e6;
+  --border-strong: #cbd4d1;
+  --accent: #0b7c84;
+  --accent-ink: #066068;
+  --accent-hover: #095e64;
+  --accent-soft: #e6f2f2;
+  --on-accent: #ffffff;
+}
+
+/* ========================================
+   SAIRA CONDENSED FONT FACES
+======================================== */
+
+/* Thin - 100 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraLight - 200 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light - 300 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular - 400 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - 500 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold - 600 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold - 700 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraBold - 800 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black - 900 */
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/font/SairaCondensed-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================
+   JETBRAINS MONO FONT FACES
+======================================== */
+
+/* Thin - 100 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraLight - 200 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light - 300 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular - 400 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - 500 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold - 600 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold - 700 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraBold - 800 */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/font/JetBrainsMono-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================
+   FRAUNCES FONT FACES
+======================================== */
+
+/* Regular - 400 */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/font/Fraunces_72pt-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - 500 */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/font/Fraunces_72pt-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold - 600 */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/font/Fraunces_72pt-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold - 700 */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/font/Fraunces_72pt-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================
+   SAIRA CONDENSED UTILITY CLASSES
+======================================== */
+
+.saira-thin {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 100;
+}
+
+.saira-extralight {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 200;
+}
+
+.saira-light {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 300;
+}
+
+.saira-regular {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+}
+
+.saira-medium {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 500;
+}
+
+.saira-semibold {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+}
+
+.saira-bold {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 700;
+}
+
+.saira-extrabold {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 800;
+}
+
+.saira-black {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 900;
+}
+
+/* ========================================
+   JETBRAINS MONO UTILITY CLASSES
+======================================== */
+
+.jetbrains-thin {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 100;
+}
+
+.jetbrains-extralight {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 200;
+}
+
+.jetbrains-light {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 300;
+}
+
+.jetbrains-regular {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+}
+
+.jetbrains-medium {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+}
+
+.jetbrains-semibold {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+}
+
+.jetbrains-bold {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+}
+
+.jetbrains-extrabold {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 800;
+}
+
+/* ========================================
+   FRAUNCES UTILITY CLASSES
+======================================== */
+
+.fraunces-regular {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+}
+
+.fraunces-medium {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+}
+
+.fraunces-semibold {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+.fraunces-bold {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+}
+.fraunces-extrabold {
+  font-family: "Fraunces", serif;
+  font-weight: 800;
+}
