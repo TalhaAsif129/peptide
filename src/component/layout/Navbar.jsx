@@ -274,7 +274,7 @@ export default function Navbar() {
                   <div className="flex items-center rounded-lg overflow-hidden">
                     <Link
                       to={item.path || "#"}
-                      className="flex-1 px-4 py-3 font-medium text-white hover:bg-[#F7F8F9]"
+                      className="flex-1 px-4 py-3 fraunces-medium text-white hover:bg-[#F7F8F9]"
                       onClick={closeMenus}
                     >
                       {item.label}
@@ -307,7 +307,7 @@ export default function Navbar() {
                         <Link
                           key={sub.label}
                           to={sub.path}
-                          className="block rounded px-3 py-2 text-sm text-white"
+                          className="block rounded px-3 py-2 text-sm fraunces text-white"
                           onClick={closeMenus}
                         >
                           {sub.label}
@@ -323,7 +323,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.path}
-                className="block rounded-lg px-4 py-3 font-medium text-white "
+                className="block rounded-lg px-4 py-3 fraunces-medium text-white "
                 onClick={closeMenus}
               >
                 {item.label}
@@ -334,14 +334,14 @@ export default function Navbar() {
           <div className="my-1 border-t border-[#e5e7eb]" />
           <Link
             to="/about"
-            className="block rounded-lg px-4 py-2.5 text-sm text-white hover:bg-[#F7F8F9] "
+            className="block rounded-lg px-4 py-2.5 text-sm fraunces-medium text-white hover:bg-[#F7F8F9] "
             onClick={closeMenus}
           >
             About
           </Link>
           <Link
             to="/contact"
-            className="block rounded-lg px-4 py-2.5 text-sm text-white hover:bg-[#F7F8F9] "
+            className="block rounded-lg px-4 py-2.5 text-sm fraunces-medium text-white hover:bg-[#F7F8F9] "
             onClick={closeMenus}
           >
             Contact
@@ -352,14 +352,14 @@ export default function Navbar() {
         <div className="mt-auto border-t border-[#e5e7eb] p-4 space-y-2">
           <Link
             to="/login"
-            className="block rounded-full border border-[#d5dedb] px-4 py-3 text-center font-bold text-white"
+            className="block rounded-full border border-[#d5dedb] px-4 py-3 text-center v-bold text-white"
             onClick={closeMenus}
           >
             Log in
           </Link>
           <Link
             to="/signup"
-            className="block rounded-full px-4 py-3 text-center font-bold bg-[#F1A93B] text-white "
+            className="block rounded-full px-4 py-3 text-center fraunces-bold bg-[#F1A93B] text-white "
             onClick={closeMenus}
           >
             Sign up
