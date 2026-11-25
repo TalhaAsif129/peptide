@@ -307,7 +307,7 @@ export default function Navbar() {
                         <Link
                           key={sub.label}
                           to={sub.path}
-                          className="block rounded px-3 py-2 text-sm text-[#4a4a4a] hover:bg-[#F7F8F9]"
+                          className="block rounded px-3 py-2 text-sm text-white"
                           onClick={closeMenus}
                         >
                           {sub.label}
@@ -359,7 +359,7 @@ export default function Navbar() {
           </Link>
           <Link
             to="/signup"
-            className="block rounded-full px-4 py-3 text-center font-bold bg-[#0d8189] text-white hover:bg-[#F1A93B]"
+            className="block rounded-full px-4 py-3 text-center font-bold bg-[#F1A93B] text-white "
             onClick={closeMenus}
           >
             Sign up
